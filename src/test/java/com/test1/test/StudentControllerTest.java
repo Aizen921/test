@@ -113,7 +113,7 @@ public class StudentControllerTest {
         Long studentId = 1L;
         createStudent();
 
-        MvcResult result = mockMvc.perform(delete("/student/{id}")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete("/student/{id}",studentId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(studentId)).andReturn();
 

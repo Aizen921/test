@@ -45,7 +45,8 @@ public class StudentService {
         return null;
     }
     public Student deleteStudentById(Long id){
-         studentDAO.deleteById(id);
-        return null;
+       Student studentToDelete=  studentDAO.findById(id).orElse(null);
+       studentDAO.deleteById(id);
+        return studentToDelete;
     }
 }
